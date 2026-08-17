@@ -66,7 +66,8 @@ export function ShopProvider({ children }: { children: ReactNode }) {
           );
           if (i === -1) return [...prev, line];
           const next = [...prev];
-          next[i] = { ...next[i], qty: next[i].qty + line.qty };
+          const existing = next[i] as CartLine;
+          next[i] = { ...existing, qty: existing.qty + line.qty };
           return next;
         }),
       setQty: (index, qty) =>
