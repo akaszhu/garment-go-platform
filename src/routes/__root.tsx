@@ -77,11 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Aanchal — Handcrafted Cotton Wear for Women & Girls" },
+      {
+        name: "description",
+        content:
+          "Hand block-printed kurta sets, co-ords, dupattas and juttis, made in small batches in Ahmedabad.",
+      },
+      { name: "author", content: "Aanchal Handcraft Boutique" },
+      { property: "og:title", content: "Aanchal — Handcraft Boutique" },
+      {
+        property: "og:description",
+        content: "Small-batch, plant-dyed cotton wear for women and girls.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
