@@ -23,12 +23,14 @@ type Search = {
 };
 
 export const Route = createFileRoute("/_site/shop")({
-  validateSearch: (s: Record<string, unknown>): Search => ({
-    category: typeof s.category === "string" ? s.category : undefined,
-    audience: typeof s.audience === "string" ? s.audience : undefined,
-    tag: typeof s.tag === "string" ? s.tag : undefined,
-    sort: typeof s.sort === "string" ? s.sort : undefined,
-  }),
+  validateSearch: (s: Record<string, unknown>): Search => {
+    const out: Search = {};
+    if (typeof s["category"] === "string") out.category = s["category"];
+    if (typeof s["audience"] === "string") out.audience = s["audience"];
+    if (typeof s["tag"] === "string") out.tag = s["tag"];
+    if (typeof s["sort"] === "string") out.sort = s["sort"];
+    return out;
+  },
   head: () => ({
     meta: [
       { title: "Shop All — Handcrafted Cotton Wear | Aanchal" },
