@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteCartRouteImport } from './routes/_site.cart'
+import { Route as SiteCheckoutRouteImport } from './routes/_site.checkout'
 import { Route as SiteShopRouteImport } from './routes/_site.shop'
 import { Route as SiteWishlistRouteImport } from './routes/_site.wishlist'
 import { Route as SiteProductSlugRouteImport } from './routes/_site.product.$slug'
@@ -28,6 +29,11 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
 const SiteCartRoute = SiteCartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCheckoutRoute = SiteCheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
   getParentRoute: () => SiteRoute,
 } as any)
 const SiteShopRoute = SiteShopRouteImport.update({
@@ -49,12 +55,14 @@ const SiteProductSlugRoute = SiteProductSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/cart': typeof SiteCartRoute
+  '/checkout': typeof SiteCheckoutRoute
   '/shop': typeof SiteShopRoute
   '/wishlist': typeof SiteWishlistRoute
   '/product/$slug': typeof SiteProductSlugRoute
 }
 export interface FileRoutesByTo {
   '/cart': typeof SiteCartRoute
+  '/checkout': typeof SiteCheckoutRoute
   '/shop': typeof SiteShopRoute
   '/wishlist': typeof SiteWishlistRoute
   '/': typeof SiteIndexRoute
@@ -64,6 +72,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
   '/_site/cart': typeof SiteCartRoute
+  '/_site/checkout': typeof SiteCheckoutRoute
   '/_site/shop': typeof SiteShopRoute
   '/_site/wishlist': typeof SiteWishlistRoute
   '/_site/': typeof SiteIndexRoute
@@ -71,13 +80,15 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cart' | '/shop' | '/wishlist' | '/product/$slug'
+  fullPaths:
+    '/' | '/cart' | '/checkout' | '/shop' | '/wishlist' | '/product/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/cart' | '/shop' | '/wishlist' | '/' | '/product/$slug'
+  to: '/cart' | '/checkout' | '/shop' | '/wishlist' | '/' | '/product/$slug'
   id:
     | '__root__'
     | '/_site'
     | '/_site/cart'
+    | '/_site/checkout'
     | '/_site/shop'
     | '/_site/wishlist'
     | '/_site/'
@@ -111,6 +122,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteCartRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/checkout': {
+      id: '/_site/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof SiteCheckoutRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/shop': {
       id: '/_site/shop'
       path: '/shop'
@@ -137,6 +155,7 @@ declare module '@tanstack/react-router' {
 
 interface SiteRouteChildren {
   SiteCartRoute: typeof SiteCartRoute
+  SiteCheckoutRoute: typeof SiteCheckoutRoute
   SiteShopRoute: typeof SiteShopRoute
   SiteWishlistRoute: typeof SiteWishlistRoute
   SiteIndexRoute: typeof SiteIndexRoute
@@ -145,6 +164,7 @@ interface SiteRouteChildren {
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteCartRoute: SiteCartRoute,
+  SiteCheckoutRoute: SiteCheckoutRoute,
   SiteShopRoute: SiteShopRoute,
   SiteWishlistRoute: SiteWishlistRoute,
   SiteIndexRoute: SiteIndexRoute,
