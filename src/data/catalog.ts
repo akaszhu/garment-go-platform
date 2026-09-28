@@ -2,6 +2,10 @@ import p1 from "@/assets/p1.jpg";
 import p2 from "@/assets/p2.jpg";
 import p3 from "@/assets/p3.jpg";
 import p4 from "@/assets/p4.jpg";
+import shirt from "@/assets/shirt.jpg";
+import top from "@/assets/top.jpg";
+import bottoms from "@/assets/bottoms.jpg";
+import dress from "@/assets/dress.jpg";
 
 export const productImages = { p1, p2, p3, p4 };
 
@@ -28,6 +32,10 @@ export type Product = {
 };
 
 export type Category =
+  | "shirts-blouses"
+  | "tops"
+  | "bottoms"
+  | "dresses"
   | "kurta-sets"
   | "co-ords"
   | "dupattas"
@@ -37,21 +45,36 @@ export type Category =
   | "bags-pouches"
   | "jewellery";
 
+export type Division = "active" | "traditional";
+
+export const divisions: { slug: Division; name: string; blurb: string; image: string }[] = [
+  { slug: "active", name: "Active Wear", blurb: "Easy pieces for everyday movement and moments out.", image: shirt },
+  { slug: "traditional", name: "Traditional Wear", blurb: "The enduring beauty of craft, made for now.", image: p1 },
+];
+
 export const categories: {
   slug: Category;
   name: string;
   blurb: string;
   image: string;
+  division: Division;
 }[] = [
-  { slug: "kurta-sets", name: "Kurta Sets", blurb: "Hand block-printed cotton", image: p1 },
-  { slug: "co-ords", name: "Co-ord Sets", blurb: "Easy indigo separates", image: p2 },
-  { slug: "dupattas", name: "Dupattas", blurb: "Handwoven, plant dyed", image: p3 },
-  { slug: "kaftans", name: "Kaftans", blurb: "Breezy summer drapes", image: p2 },
-  { slug: "girls", name: "Girls", blurb: "Mini versions, same craft", image: p1 },
-  { slug: "footwear", name: "Footwear", blurb: "Embroidered juttis", image: p4 },
-  { slug: "bags-pouches", name: "Bags & Pouches", blurb: "Potlis and totes", image: p4 },
-  { slug: "jewellery", name: "Jewellery", blurb: "Silver & brass, oxidised", image: p3 },
+  { slug: "shirts-blouses", name: "Shirts & Blouses", blurb: "Soft tailoring, hand finished", image: shirt, division: "active" },
+  { slug: "tops", name: "Tops", blurb: "Festive and casual favourites", image: top, division: "active" },
+  { slug: "bottoms", name: "Bottoms", blurb: "Easy, breathable separates", image: bottoms, division: "active" },
+  { slug: "co-ords", name: "Co-ords", blurb: "Festive and casual sets", image: p2, division: "active" },
+  { slug: "dresses", name: "Dresses", blurb: "Made to move with you", image: dress, division: "active" },
+  { slug: "kurta-sets", name: "Kurta Sets", blurb: "Hand block-printed cotton", image: p1, division: "traditional" },
+  { slug: "dupattas", name: "Dupattas", blurb: "Handwoven, plant dyed", image: p3, division: "traditional" },
+  { slug: "kaftans", name: "Kaftans", blurb: "Breezy summer drapes", image: p2, division: "traditional" },
+  { slug: "girls", name: "Girls", blurb: "Mini versions, same craft", image: p1, division: "traditional" },
+  { slug: "footwear", name: "Footwear", blurb: "Embroidered juttis", image: p4, division: "traditional" },
+  { slug: "bags-pouches", name: "Bags & Pouches", blurb: "Potlis and totes", image: p4, division: "traditional" },
+  { slug: "jewellery", name: "Jewellery", blurb: "Silver & brass, oxidised", image: p3, division: "traditional" },
 ];
+
+export const divisionFor = (category: Category): Division =>
+  categories.find((c) => c.slug === category)?.division ?? "traditional";
 
 const C = {
   ivory: { name: "Ivory", hex: "#f2e8d8" },
@@ -316,6 +339,46 @@ export const products: Product[] = [
     description:
       "A roomy block-printed tote with reinforced straps that holds a laptop, a tiffin, and the whole day.",
     care: ["Machine wash cold", "Air dry"],
+  }),
+  make(13, {
+    slug: "nira-cotton-shirt", name: "Nira Block-Print Shirt", price: 2150, mrp: 2550,
+    images: [shirt, shirt], category: "shirts-blouses", audience: "women",
+    colors: [C.ivory, C.indigo], sizes: APPAREL, fabric: "Pure cotton",
+    occasion: "Everyday", rating: 4.7, reviewCount: 18, stock: 14, tags: ["new"],
+    description: "A relaxed cotton shirt with indigo floral block prints, made for the everyday wardrobe.",
+    care: ["Hand wash cold", "Dry in shade"],
+  }),
+  make(14, {
+    slug: "tara-festive-top", name: "Tara Embroidered Top", price: 1950, mrp: 2350,
+    images: [top, top], category: "tops", audience: "women",
+    colors: [C.rose], sizes: APPAREL, fabric: "Cotton voile",
+    occasion: "Festive", rating: 4.8, reviewCount: 15, stock: 11, tags: ["new"],
+    description: "A rose cotton top with delicate neckline embroidery for celebrations and evenings out.",
+    care: ["Hand wash separately", "Dry in shade"],
+  }),
+  make(15, {
+    slug: "aara-casual-top", name: "Aara Everyday Top", price: 1550, mrp: 1850,
+    images: [shirt, top], category: "tops", audience: "women",
+    colors: [C.ivory, C.indigo], sizes: APPAREL, fabric: "Pure cotton",
+    occasion: "Everyday", rating: 4.6, reviewCount: 12, stock: 19, tags: ["new"],
+    description: "An easy cotton top with subtle hand-printed details for slow days and busy ones.",
+    care: ["Machine wash cold", "Dry in shade"],
+  }),
+  make(16, {
+    slug: "van-cotton-trousers", name: "Van Wide-Leg Trousers", price: 1850, mrp: 2200,
+    images: [bottoms, bottoms], category: "bottoms", audience: "women",
+    colors: [C.olive], sizes: APPAREL, fabric: "Cotton twill",
+    occasion: "Everyday", rating: 4.7, reviewCount: 21, stock: 16, tags: ["new"],
+    description: "Relaxed olive cotton trousers finished with a delicate printed hem.",
+    care: ["Machine wash cold", "Iron inside out"],
+  }),
+  make(17, {
+    slug: "gulmohar-midi-dress", name: "Gulmohar Printed Dress", price: 2950, mrp: 3500,
+    images: [dress, dress], category: "dresses", audience: "women",
+    colors: [C.ivory, C.terracotta], sizes: APPAREL, fabric: "Pure cotton",
+    occasion: "Daywear", rating: 4.8, reviewCount: 26, stock: 13, tags: ["new"],
+    description: "An easy midi dress in breathable cotton with terracotta floral block prints.",
+    care: ["Hand wash cold", "Dry in shade"],
   }),
 ];
 
