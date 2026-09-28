@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Storefront categories belong to either Active Wear or Traditional Wear in the shared catalog, and collection links filter through `/shop` search parameters so navigation and product listings stay consistent.

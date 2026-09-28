@@ -9,6 +9,7 @@ import {
   brandValues,
   byTag,
   categories,
+  divisions,
   products,
   testimonials,
 } from "@/data/catalog";
@@ -28,6 +29,8 @@ export const Route = createFileRoute("/_site/")({
         content:
           "Small-batch block prints, plant dyes and pure cotton. Free shipping in India above ₹1,999.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -104,14 +107,33 @@ function Home() {
 
       {/* Categories */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-        <p className="eyebrow">Shop by category</p>
+        <p className="eyebrow">Explore the collection</p>
+        <h2 className="mt-2 text-3xl md:text-4xl">Two ways to wear Aanchal</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {divisions.map((d) => (
+            <Link key={d.slug} to="/shop" search={{ division: d.slug }} className="group relative block overflow-hidden">
+              <img src={d.image} alt="" loading="lazy" className="h-72 w-full object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent" />
+              <div className="absolute bottom-0 p-6 text-background">
+                <h3 className="text-3xl">{d.name}</h3>
+                <p className="mt-1 text-sm">{d.blurb}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <p className="eyebrow mt-12">Shop by category</p>
         <h2 className="mt-2 text-3xl md:text-4xl">Find your kind of handmade</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((c) => (
+        {divisions.map((d) => <div key={d.slug} className="mt-10">
+          <div className="flex items-end justify-between border-b border-border pb-3">
+            <h3 className="text-2xl">{d.name}</h3>
+            <Link to="/shop" search={{ division: d.slug }} className="text-sm underline underline-offset-4">View all</Link>
+          </div>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {categories.filter((c) => c.division === d.slug).map((c) => (
             <Link
               key={c.slug}
               to="/shop"
-              search={{ category: c.slug }}
+              search={{ category: c.slug, division: d.slug }}
               className="group relative overflow-hidden"
             >
               <img
@@ -128,6 +150,7 @@ function Home() {
             </Link>
           ))}
         </div>
+        </div>)}
       </section>
 
       <Section
