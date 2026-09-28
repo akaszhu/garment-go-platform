@@ -1,0 +1,3 @@
+- [x] Add Shirts & Blouses, Tops, Bottoms, Co-ords, and Dresses to the catalog.
+- [x] Divide the storefront into Active Wear and Traditional Wear across navigation, homepage, and shop filters.
+- [x] Verify category browsing and mobile navigation in the preview.

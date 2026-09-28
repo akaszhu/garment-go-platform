@@ -121,7 +121,7 @@ function Home() {
             </Link>
           ))}
         </div>
-        <p className="eyebrow">Shop by category</p>
+        <p className="eyebrow mt-12">Shop by category</p>
         <h2 className="mt-2 text-3xl md:text-4xl">Find your kind of handmade</h2>
         {divisions.map((d) => <div key={d.slug} className="mt-10">
           <div className="flex items-end justify-between border-b border-border pb-3">

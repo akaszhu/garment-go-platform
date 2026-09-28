@@ -39,7 +39,7 @@ export const Route = createFileRoute("/_site/shop")({
       {
         name: "description",
         content:
-          "Browse hand block-printed kurta sets, co-ords, dupattas, kaftans, girls' wear, juttis and accessories. Filter by size, colour, fabric and occasion.",
+          "Browse Active Wear and Traditional Wear, from shirts, tops, bottoms and dresses to kurta sets, dupattas and accessories. Filter by size, colour, fabric and occasion.",
       },
       { property: "og:title", content: "Shop All — Aanchal Handcraft Boutique" },
       {
