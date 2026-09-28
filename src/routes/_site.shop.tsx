@@ -12,10 +12,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ProductCard } from "@/components/shop/ProductCard";
-import { categories, products, type Product } from "@/data/catalog";
+import { categories, divisions, divisionFor, products, type Division, type Product } from "@/data/catalog";
 import { cn } from "@/lib/utils";
 
 type Search = {
+  division?: Division;
   category?: string;
   audience?: string;
   tag?: string;
@@ -25,6 +26,7 @@ type Search = {
 export const Route = createFileRoute("/_site/shop")({
   validateSearch: (s: Record<string, unknown>): Search => {
     const out: Search = {};
+    if (s["division"] === "active" || s["division"] === "traditional") out.division = s["division"];
     if (typeof s["category"] === "string") out.category = s["category"];
     if (typeof s["audience"] === "string") out.audience = s["audience"];
     if (typeof s["tag"] === "string") out.tag = s["tag"];
@@ -44,6 +46,8 @@ export const Route = createFileRoute("/_site/shop")({
         property: "og:description",
         content: "Small-batch cotton pieces for women and girls, filterable by size and fabric.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Shop,
@@ -72,6 +76,7 @@ function Shop() {
   const filtered = useMemo(() => {
     let list = products.filter((p) => {
       if (search.category && p.category !== search.category) return false;
+      if (search.division && divisionFor(p.category) !== search.division) return false;
       if (search.audience && p.audience !== search.audience) return false;
       if (search.tag && !p.tags.includes(search.tag as Product["tags"][number])) return false;
       if (sizes.length && !p.sizes.some((s) => sizes.includes(s))) return false;
@@ -93,6 +98,7 @@ function Shop() {
 
   const visible = filtered.slice(0, page * PER_PAGE);
   const activeCategory = categories.find((c) => c.slug === search.category);
+  const activeDivision = divisions.find((d) => d.slug === search.division);
 
   const toggle = (
     value: string,
@@ -115,9 +121,9 @@ function Shop() {
               </>
             )}
           </nav>
-          <h1 className="text-4xl md:text-5xl">{activeCategory?.name ?? "Shop All"}</h1>
+           <h1 className="text-4xl md:text-5xl">{activeCategory?.name ?? activeDivision?.name ?? "Shop All"}</h1>
           <p className="mt-3 max-w-xl text-sm text-muted-foreground">
-            {activeCategory?.blurb ??
+             {activeCategory?.blurb ?? activeDivision?.blurb ??
               "Everything we currently have on the shelf — printed, dyed and finished by hand."}
           </p>
         </div>
@@ -126,12 +132,18 @@ function Shop() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[240px_1fr]">
         {/* Filters */}
         <aside className={cn("space-y-7", !showFilters && "hidden lg:block")}>
+          <FilterGroup title="Collections">
+            {divisions.map((d) => (
+              <Link key={d.slug} to="/shop" search={{ division: d.slug }} className={cn("block py-1 text-sm hover:text-primary", search.division === d.slug && "font-semibold text-primary")}>{d.name}</Link>
+            ))}
+            <Link to="/shop" search={{}} className="mt-2 block text-xs underline underline-offset-4">Shop all</Link>
+          </FilterGroup>
           <FilterGroup title="Category">
-            {categories.map((c) => (
+            {categories.filter((c) => !search.division || c.division === search.division).map((c) => (
               <Link
                 key={c.slug}
                 to="/shop"
-                search={(prev) => ({ ...prev, category: c.slug })}
+                 search={(prev) => ({ ...prev, category: c.slug, division: c.division })}
                 className={cn(
                   "block py-1 text-sm hover:text-primary",
                   search.category === c.slug && "font-semibold text-primary",
@@ -142,7 +154,7 @@ function Shop() {
             ))}
             <Link
               to="/shop"
-              search={{}}
+               search={search.division ? { division: search.division } : {}}
               className="mt-2 block text-xs underline underline-offset-4"
             >
               Clear category

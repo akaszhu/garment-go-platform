@@ -10,10 +10,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useShop } from "@/lib/shop-store";
-import { categories } from "@/data/catalog";
+import { categories, divisions } from "@/data/catalog";
 
 const nav = [
   { to: "/shop", label: "Shop All", search: undefined },
+  { to: "/shop", label: "Active Wear", search: { division: "active" } },
+  { to: "/shop", label: "Traditional Wear", search: { division: "traditional" } },
   { to: "/shop", label: "New In", search: { tag: "new" } },
   { to: "/shop", label: "Girls", search: { audience: "girls" } },
   { to: "/about", label: "Our Studio", search: undefined },
@@ -62,18 +64,20 @@ export function Header() {
                   {n.label}
                 </Link>
               ))}
-              <div className="mt-4 eyebrow">Categories</div>
-              {categories.map((c) => (
+               {divisions.map((d) => <div key={d.slug} className="mt-4 flex flex-col">
+                 <Link to="/shop" search={{ division: d.slug }} onClick={() => setOpen(false)} className="eyebrow px-2 py-2 hover:text-primary">{d.name}</Link>
+                 {categories.filter((c) => c.division === d.slug).map((c) => (
                 <Link
                   key={c.slug}
                   to="/shop"
-                  search={{ category: c.slug }}
+                   search={{ category: c.slug, division: d.slug }}
                   onClick={() => setOpen(false)}
                   className="rounded-sm px-2 py-2 text-sm hover:bg-secondary"
                 >
                   {c.name}
                 </Link>
-              ))}
+                 ))}
+               </div>)}
             </nav>
           </SheetContent>
         </Sheet>
