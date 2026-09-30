@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 type Search = {
   division?: Division;
   category?: string;
+  style?: "festive" | "casual";
   audience?: string;
   tag?: string;
   sort?: string;
@@ -28,6 +29,7 @@ export const Route = createFileRoute("/_site/shop")({
     const out: Search = {};
     if (s["division"] === "active" || s["division"] === "traditional") out.division = s["division"];
     if (typeof s["category"] === "string") out.category = s["category"];
+    if (s["style"] === "festive" || s["style"] === "casual") out.style = s["style"];
     if (typeof s["audience"] === "string") out.audience = s["audience"];
     if (typeof s["tag"] === "string") out.tag = s["tag"];
     if (typeof s["sort"] === "string") out.sort = s["sort"];
@@ -76,6 +78,7 @@ function Shop() {
   const filtered = useMemo(() => {
     let list = products.filter((p) => {
       if (search.category && p.category !== search.category) return false;
+      if (search.style && p.subcategory !== search.style) return false;
       if (search.division && divisionFor(p.category) !== search.division) return false;
       if (search.audience && p.audience !== search.audience) return false;
       if (search.tag && !p.tags.includes(search.tag as Product["tags"][number])) return false;
