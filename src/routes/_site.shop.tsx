@@ -146,7 +146,7 @@ function Shop() {
               <Link
                 key={c.slug}
                 to="/shop"
-                 search={(prev) => ({ ...prev, category: c.slug, division: c.division })}
+                 search={(prev) => ({ ...prev, category: c.slug, division: c.division, style: undefined })}
                 className={cn(
                   "block py-1 text-sm hover:text-primary",
                   search.category === c.slug && "font-semibold text-primary",
@@ -163,6 +163,28 @@ function Shop() {
               Clear category
             </Link>
           </FilterGroup>
+
+          {(search.category === "tops" || search.category === "co-ords") && (
+            <FilterGroup title={search.category === "tops" ? "Tops" : "Co-ords"}>
+              {[
+                { label: search.category === "tops" ? "All Tops" : "All Co-ords", style: undefined },
+                { label: search.category === "tops" ? "Festive Tops" : "Festive Co-ords", style: "festive" as const },
+                { label: search.category === "tops" ? "Casual Tops" : "Casual Co-ords", style: "casual" as const },
+              ].map((o) => (
+                <Link
+                  key={o.label}
+                  to="/shop"
+                  search={(prev) => ({ ...prev, style: o.style })}
+                  className={cn(
+                    "block py-1 text-sm hover:text-primary",
+                    (search.style ?? undefined) === o.style && "font-semibold text-primary",
+                  )}
+                >
+                  {o.label}
+                </Link>
+              ))}
+            </FilterGroup>
+          )}
 
           <FilterGroup title="Size">
             <div className="flex flex-wrap gap-2">
