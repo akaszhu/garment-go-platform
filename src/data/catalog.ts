@@ -353,7 +353,7 @@ export const products: Product[] = [
   }),
   make(14, {
     slug: "tara-festive-top", name: "Tara Embroidered Top", price: 1950, mrp: 2350,
-    images: [top, top], category: "tops", audience: "women",
+    images: [top, top], category: "tops", subcategory: "festive", audience: "women",
     colors: [C.rose], sizes: APPAREL, fabric: "Cotton voile",
     occasion: "Festive", rating: 4.8, reviewCount: 15, stock: 11, tags: ["new"],
     description: "A rose cotton top with delicate neckline embroidery for celebrations and evenings out.",
@@ -361,7 +361,7 @@ export const products: Product[] = [
   }),
   make(15, {
     slug: "aara-casual-top", name: "Aara Everyday Top", price: 1550, mrp: 1850,
-    images: [shirt, top], category: "tops", audience: "women",
+    images: [shirt, top], category: "tops", subcategory: "casual", audience: "women",
     colors: [C.ivory, C.indigo], sizes: APPAREL, fabric: "Pure cotton",
     occasion: "Everyday", rating: 4.6, reviewCount: 12, stock: 19, tags: ["new"],
     description: "An easy cotton top with subtle hand-printed details for slow days and busy ones.",
