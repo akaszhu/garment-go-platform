@@ -67,16 +67,36 @@ export function Header() {
                {divisions.map((d) => <div key={d.slug} className="mt-4 flex flex-col">
                  <Link to="/shop" search={{ division: d.slug }} onClick={() => setOpen(false)} className="eyebrow px-2 py-2 hover:text-primary">{d.name}</Link>
                  {categories.filter((c) => c.division === d.slug).map((c) => (
-                <Link
-                  key={c.slug}
-                  to="/shop"
-                   search={{ category: c.slug, division: d.slug }}
-                  onClick={() => setOpen(false)}
-                  className="rounded-sm px-2 py-2 text-sm hover:bg-secondary"
-                >
-                  {c.name}
-                </Link>
-                 ))}
+                 <div key={c.slug}>
+                 <Link
+                   to="/shop"
+                    search={{ category: c.slug, division: d.slug }}
+                   onClick={() => setOpen(false)}
+                   className="block rounded-sm px-2 py-2 text-sm hover:bg-secondary"
+                 >
+                   {c.name}
+                 </Link>
+                 {(c.slug === "tops" || c.slug === "co-ords") && (
+                   <div className="ml-4 flex flex-col border-l border-border">
+                     {[
+                       { label: c.slug === "tops" ? "All Tops" : "All Co-ords", style: undefined },
+                       { label: c.slug === "tops" ? "Festive Tops" : "Festive Co-ords", style: "festive" },
+                       { label: c.slug === "tops" ? "Casual Tops" : "Casual Co-ords", style: "casual" },
+                     ].map((o) => (
+                       <Link
+                         key={o.label}
+                         to="/shop"
+                         search={{ category: c.slug, division: d.slug, style: o.style }}
+                         onClick={() => setOpen(false)}
+                         className="rounded-sm px-2 py-1.5 text-xs text-muted-foreground hover:bg-secondary hover:text-foreground"
+                       >
+                         {o.label}
+                       </Link>
+                     ))}
+                   </div>
+                 )}
+                 </div>
+                  ))}
                </div>)}
             </nav>
           </SheetContent>
