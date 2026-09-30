@@ -14,12 +14,17 @@ import { categories, divisions } from "@/data/catalog";
 
 const nav = [
   { to: "/shop", label: "Shop All", search: undefined },
-  { to: "/shop", label: "Active Wear", search: { division: "active" } },
-  { to: "/shop", label: "Traditional Wear", search: { division: "traditional" } },
   { to: "/shop", label: "New In", search: { tag: "new" } },
   { to: "/shop", label: "Girls", search: { audience: "girls" } },
   { to: "/about", label: "Our Studio", search: undefined },
   { to: "/track-order", label: "Track Order", search: undefined },
+];
+
+const topBar = [
+  { to: "/shop", label: "Tops", search: { category: "tops" } },
+  { to: "/shop", label: "Bottoms", search: { category: "bottoms" } },
+  { to: "/shop", label: "Co-ords", search: { category: "co-ords" } },
+  { to: "/shop", label: "Dresses", search: { category: "dresses" } },
 ];
 
 export function AnnouncementBar() {
