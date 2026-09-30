@@ -17,13 +17,13 @@ import {
 export const Route = createFileRoute("/_site/")({
   head: () => ({
     meta: [
-      { title: "Aanchal — Hand Block-Printed Boutique for Women & Girls" },
+      { title: "Shoge — Hand Block-Printed Boutique for Women & Girls" },
       {
         name: "description",
         content:
           "Handcrafted kurta sets, co-ords, dupattas and accessories in pure cotton and plant dyes. Made in Ahmedabad, shipped across India and worldwide.",
       },
-      { property: "og:title", content: "Aanchal — Handcraft Boutique for Women & Girls" },
+      { property: "og:title", content: "Shoge — Handcraft Boutique for Women & Girls" },
       {
         property: "og:description",
         content:
@@ -108,7 +108,7 @@ function Home() {
       {/* Categories */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <p className="eyebrow">Explore the collection</p>
-        <h2 className="mt-2 text-3xl md:text-4xl">Two ways to wear Aanchal</h2>
+        <h2 className="mt-2 text-3xl md:text-4xl">Two ways to wear Shoge</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {divisions.map((d) => (
             <Link key={d.slug} to="/shop" search={{ division: d.slug }} className="group relative block overflow-hidden">
@@ -185,7 +185,7 @@ function Home() {
             <p className="eyebrow">Our studio</p>
             <h2 className="mt-3 text-4xl">Twelve hands, one long table, no shortcuts.</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Aanchal began in 2021 in a two-room studio off Ashram Road, with one carved teak
+              Shoge began in 2021 in a two-room studio off Ashram Road, with one carved teak
               block and a pot of indigo. Today a team of twelve women print, dye, cut and finish
               every piece we sell — in batches small enough that we still know which metre came
               off which table.

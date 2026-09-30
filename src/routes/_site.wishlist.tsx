@@ -8,10 +8,10 @@ import { useShop } from "@/lib/shop-store";
 export const Route = createFileRoute("/_site/wishlist")({
   head: () => ({
     meta: [
-      { title: "Wishlist — Aanchal" },
+      { title: "Wishlist — Shoge" },
       { name: "description", content: "The handcrafted pieces you have saved for later." },
-      { property: "og:title", content: "Wishlist — Aanchal" },
-      { property: "og:description", content: "Saved pieces from the Aanchal collection." },
+      { property: "og:title", content: "Wishlist — Shoge" },
+      { property: "og:description", content: "Saved pieces from the Shoge collection." },
     ],
   }),
   component: WishlistPage,

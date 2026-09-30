@@ -14,9 +14,9 @@ import { useShop } from "@/lib/shop-store";
 export const Route = createFileRoute("/_site/checkout")({
   head: () => ({
     meta: [
-      { title: "Checkout — Aanchal" },
+      { title: "Checkout — Shoge" },
       { name: "description", content: "Secure checkout with UPI, cards, netbanking and cash on delivery." },
-      { property: "og:title", content: "Checkout — Aanchal" },
+      { property: "og:title", content: "Checkout — Shoge" },
       { property: "og:description", content: "Secure checkout for your handcrafted cotton order." },
       { name: "robots", content: "noindex" },
     ],
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/_site/checkout")({
   component: CheckoutPage,
 });
 
-const COUPONS: Record<string, number> = { FIRSTTEN: 0.1, AANCHAL15: 0.15 };
+const COUPONS: Record<string, number> = { FIRSTTEN: 0.1, SHOGE15: 0.15 };
 
 function CheckoutPage() {
   const { lines, subtotal, clearCart } = useShop();
