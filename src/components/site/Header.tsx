@@ -115,7 +115,7 @@ export function Header() {
         </Link>
 
         <nav className="mx-auto hidden items-center gap-7 text-sm lg:flex">
-          {nav.map((n) => (
+          {topBar.map((n) => (
             <Link
               key={n.label}
               to={n.to}
