@@ -17,6 +17,7 @@ export type Product = {
   mrp: number;
   images: string[];
   category: Category;
+  subcategory?: "festive" | "casual";
   audience: "women" | "girls";
   colors: { name: string; hex: string }[];
   sizes: string[];
@@ -127,6 +128,7 @@ export const products: Product[] = [
     mrp: 3400,
     images: [p2, p1],
     category: "co-ords",
+    subcategory: "casual",
     audience: "women",
     colors: [C.indigo, C.black],
     sizes: APPAREL,
@@ -287,6 +289,7 @@ export const products: Product[] = [
     mrp: 3150,
     images: [p2, p3],
     category: "co-ords",
+    subcategory: "casual",
     audience: "women",
     colors: [C.olive, C.ivory],
     sizes: APPAREL,
