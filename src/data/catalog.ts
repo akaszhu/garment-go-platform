@@ -17,6 +17,7 @@ export type Product = {
   mrp: number;
   images: string[];
   category: Category;
+  subcategory?: "festive" | "casual";
   audience: "women" | "girls";
   colors: { name: string; hex: string }[];
   sizes: string[];
@@ -127,6 +128,7 @@ export const products: Product[] = [
     mrp: 3400,
     images: [p2, p1],
     category: "co-ords",
+    subcategory: "casual",
     audience: "women",
     colors: [C.indigo, C.black],
     sizes: APPAREL,
@@ -287,6 +289,7 @@ export const products: Product[] = [
     mrp: 3150,
     images: [p2, p3],
     category: "co-ords",
+    subcategory: "casual",
     audience: "women",
     colors: [C.olive, C.ivory],
     sizes: APPAREL,
@@ -350,7 +353,7 @@ export const products: Product[] = [
   }),
   make(14, {
     slug: "tara-festive-top", name: "Tara Embroidered Top", price: 1950, mrp: 2350,
-    images: [top, top], category: "tops", audience: "women",
+    images: [top, top], category: "tops", subcategory: "festive", audience: "women",
     colors: [C.rose], sizes: APPAREL, fabric: "Cotton voile",
     occasion: "Festive", rating: 4.8, reviewCount: 15, stock: 11, tags: ["new"],
     description: "A rose cotton top with delicate neckline embroidery for celebrations and evenings out.",
@@ -358,7 +361,7 @@ export const products: Product[] = [
   }),
   make(15, {
     slug: "aara-casual-top", name: "Aara Everyday Top", price: 1550, mrp: 1850,
-    images: [shirt, top], category: "tops", audience: "women",
+    images: [shirt, top], category: "tops", subcategory: "casual", audience: "women",
     colors: [C.ivory, C.indigo], sizes: APPAREL, fabric: "Pure cotton",
     occasion: "Everyday", rating: 4.6, reviewCount: 12, stock: 19, tags: ["new"],
     description: "An easy cotton top with subtle hand-printed details for slow days and busy ones.",
@@ -379,6 +382,14 @@ export const products: Product[] = [
     occasion: "Daywear", rating: 4.8, reviewCount: 26, stock: 13, tags: ["new"],
     description: "An easy midi dress in breathable cotton with terracotta floral block prints.",
     care: ["Hand wash cold", "Dry in shade"],
+  }),
+  make(18, {
+    slug: "utsav-festive-coord", name: "Utsav Festive Co-ord", price: 3650, mrp: 4200,
+    images: [p2, top], category: "co-ords", subcategory: "festive", audience: "women",
+    colors: [C.terracotta, C.rose], sizes: APPAREL, fabric: "Chanderi cotton",
+    occasion: "Festive", rating: 4.9, reviewCount: 9, stock: 7, tags: ["new"],
+    description: "A celebration-ready co-ord in lustrous Chanderi cotton with hand-embroidered yoke and matching straight pants.",
+    care: ["Dry clean recommended", "Store folded"],
   }),
 ];
 
