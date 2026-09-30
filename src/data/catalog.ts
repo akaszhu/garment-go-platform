@@ -383,6 +383,14 @@ export const products: Product[] = [
     description: "An easy midi dress in breathable cotton with terracotta floral block prints.",
     care: ["Hand wash cold", "Dry in shade"],
   }),
+  make(18, {
+    slug: "utsav-festive-coord", name: "Utsav Festive Co-ord", price: 3650, mrp: 4200,
+    images: [p2, top], category: "co-ords", subcategory: "festive", audience: "women",
+    colors: [C.terracotta, C.rose], sizes: APPAREL, fabric: "Chanderi cotton",
+    occasion: "Festive", rating: 4.9, reviewCount: 9, stock: 7, tags: ["new"],
+    description: "A celebration-ready co-ord in lustrous Chanderi cotton with hand-embroidered yoke and matching straight pants.",
+    care: ["Dry clean recommended", "Store folded"],
+  }),
 ];
 
 export const bySlug = (slug: string) => products.find((p) => p.slug === slug);
