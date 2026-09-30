@@ -127,7 +127,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs opacity-75 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} Shoge. GSTIN 24ABCDE1234F1Z5.</p>
+          <p>© {new Date().getFullYear()} Shoge Handcraft Boutique. GSTIN 24ABCDE1234F1Z5.</p>
           <p>UPI · Visa · Mastercard · RuPay · Net Banking · Cash on Delivery</p>
         </div>
       </div>
