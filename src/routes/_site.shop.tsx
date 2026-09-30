@@ -37,13 +37,13 @@ export const Route = createFileRoute("/_site/shop")({
   },
   head: () => ({
     meta: [
-      { title: "Shop All — Handcrafted Cotton Wear | Aanchal" },
+      { title: "Shop All — Handcrafted Cotton Wear | Shoge" },
       {
         name: "description",
         content:
           "Browse Active Wear and Traditional Wear, from shirts, tops, bottoms and dresses to kurta sets, dupattas and accessories. Filter by size, colour, fabric and occasion.",
       },
-      { property: "og:title", content: "Shop All — Aanchal Handcraft Boutique" },
+      { property: "og:title", content: "Shop All — Shoge" },
       {
         property: "og:description",
         content: "Small-batch cotton pieces for women and girls, filterable by size and fabric.",

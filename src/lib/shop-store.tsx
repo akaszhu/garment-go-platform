@@ -23,7 +23,7 @@ type ShopState = {
 };
 
 const ShopContext = createContext<ShopState | null>(null);
-const KEY = "aanchal.shop.v1";
+const KEY = "shoge.shop.v1";
 
 export function ShopProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartLine[]>([]);

@@ -4,10 +4,10 @@ import { PageHeader } from "@/components/site/Page";
 
 export const Route = createFileRoute("/_site/track-order")({
   head: () => ({ meta: [
-    { title: "Track Your Order — Aanchal" },
-    { name: "description", content: "Order tracking information for Aanchal boutique purchases." },
-    { property: "og:title", content: "Track Your Order — Aanchal" },
-    { property: "og:description", content: "Find out about tracking your Aanchal order." },
+    { title: "Track Your Order — Shoge" },
+    { name: "description", content: "Order tracking information for Shoge boutique purchases." },
+    { property: "og:title", content: "Track Your Order — Shoge" },
+    { property: "og:description", content: "Find out about tracking your Shoge order." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ] }),

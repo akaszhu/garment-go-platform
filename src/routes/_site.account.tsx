@@ -4,10 +4,10 @@ import { PageHeader } from "@/components/site/Page";
 
 export const Route = createFileRoute("/_site/account")({
   head: () => ({ meta: [
-    { title: "Your Account — Aanchal" },
-    { name: "description", content: "Your Aanchal account and saved pieces." },
-    { property: "og:title", content: "Your Account — Aanchal" },
-    { property: "og:description", content: "View your Aanchal saved pieces." },
+    { title: "Your Account — Shoge" },
+    { name: "description", content: "Your Shoge account and saved pieces." },
+    { property: "og:title", content: "Your Account — Shoge" },
+    { property: "og:description", content: "View your Shoge saved pieces." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
   ] }),

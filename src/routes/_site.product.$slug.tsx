@@ -20,14 +20,14 @@ export const Route = createFileRoute("/_site/product/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Unavailable — Aanchal" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Unavailable — Shoge" }, { name: "robots", content: "noindex" }] };
     }
     const p = loaderData.product;
     return {
       meta: [
-        { title: `${p.name} — Aanchal` },
+        { title: `${p.name} — Shoge` },
         { name: "description", content: p.description.slice(0, 155) },
-        { property: "og:title", content: `${p.name} — Aanchal` },
+        { property: "og:title", content: `${p.name} — Shoge` },
         { property: "og:description", content: p.description.slice(0, 155) },
       ],
     };
