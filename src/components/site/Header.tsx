@@ -78,11 +78,11 @@ export function Header() {
                  </Link>
                  {(c.slug === "tops" || c.slug === "co-ords") && (
                    <div className="ml-4 flex flex-col border-l border-border">
-                     {[
+                     {([
                        { label: c.slug === "tops" ? "All Tops" : "All Co-ords", style: undefined },
                        { label: c.slug === "tops" ? "Festive Tops" : "Festive Co-ords", style: "festive" },
                        { label: c.slug === "tops" ? "Casual Tops" : "Casual Co-ords", style: "casual" },
-                     ].map((o) => (
+                     ] as { label: string; style: "festive" | "casual" | undefined }[]).map((o) => (
                        <Link
                          key={o.label}
                          to="/shop"

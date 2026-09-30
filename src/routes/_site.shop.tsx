@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 type Search = {
   division?: Division;
   category?: string;
-  style?: "festive" | "casual";
+  style?: "festive" | "casual" | undefined;
   audience?: string;
   tag?: string;
   sort?: string;
