@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { useState } from "react";
+import { BrandLogo } from "@/components/site/BrandLogo";
 
 const columns: { title: string; links: { to: string; label: string }[] }[] = [
   {
@@ -90,10 +91,10 @@ export function Newsletter() {
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--indigo-ink)] text-primary-foreground">
+    <footer className="bg-indigo-ink text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.4fr_repeat(4,1fr)]">
         <div>
-          <p className="font-display text-3xl">Shoge</p>
+          <BrandLogo className="w-32 brightness-0 invert" />
           <p className="mt-3 max-w-xs text-sm opacity-80">
             A small handcraft boutique in Ahmedabad. Block prints, plant dyes and pure cotton
             for women and girls.

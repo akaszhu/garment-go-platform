@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 Storefront categories belong to either Active Wear or Traditional Wear in the shared catalog, and collection links filter through `/shop` search parameters so navigation and product listings stay consistent.
+
+Use the supplied Shoge logo asset through the shared BrandLogo and ShellLogo components so brand artwork stays consistent across navigation, loading states, and identity surfaces.

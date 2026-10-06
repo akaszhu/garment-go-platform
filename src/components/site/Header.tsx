@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { useShop } from "@/lib/shop-store";
 import { categories, divisions } from "@/data/catalog";
+import { BrandLogo, ShellLogo } from "@/components/site/BrandLogo";
 
 const nav = [
   { to: "/shop", label: "Shop All", search: undefined },
@@ -56,7 +57,10 @@ export function Header() {
             <Menu className="h-5 w-5" />
           </SheetTrigger>
           <SheetContent side="left" className="w-80">
-            <SheetTitle className="font-display text-2xl">Shoge</SheetTitle>
+            <SheetTitle className="flex items-center gap-3">
+              <ShellLogo className="h-9 w-9" />
+              <BrandLogo className="w-24" />
+            </SheetTitle>
             <nav className="mt-6 flex flex-col gap-1">
               {nav.map((n) => (
                 <Link
@@ -107,11 +111,8 @@ export function Header() {
           </SheetContent>
         </Sheet>
 
-        <Link to="/" className="mr-auto lg:mr-0">
-          <span className="font-display text-2xl leading-none tracking-tight">Shoge</span>
-          <span className="hidden text-[0.6rem] tracking-[0.3em] uppercase text-muted-foreground sm:block">
-            Handcraft Boutique
-          </span>
+        <Link to="/" aria-label="Shoge home" className="mr-auto flex items-center lg:mr-0">
+          <BrandLogo className="w-24 sm:w-28" />
         </Link>
 
         <nav className="mx-auto hidden items-center gap-7 text-sm lg:flex">
