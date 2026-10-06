@@ -6,7 +6,7 @@
 
 /*
  * Shoge Boutique design system — handcrafted ethnic wear.
- * Palette: warm cream paper, terracotta, indigo, marigold, clay brown.
+ * Palette: Deep Blue, Concerto, Glacial Salt, Ocean City.
  * Type: Cormorant Garamond (display) + Karla (body).
  */
 
@@ -57,48 +57,48 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
-  --shadow-soft: 0 18px 40px -24px oklch(0.35 0.06 50 / 0.45);
-  --shadow-lift: 0 24px 60px -28px oklch(0.35 0.08 50 / 0.55);
+  --shadow-soft: 0 18px 40px -24px oklch(0.28 0.057 260 / 0.28);
+  --shadow-lift: 0 24px 60px -28px oklch(0.28 0.057 260 / 0.42);
 }
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.972 0.014 84);
-  --foreground: oklch(0.26 0.03 52);
-  --card: oklch(0.99 0.008 86);
-  --card-foreground: oklch(0.26 0.03 52);
-  --popover: oklch(0.99 0.008 86);
-  --popover-foreground: oklch(0.26 0.03 52);
-  --primary: oklch(0.55 0.135 44);
-  --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.93 0.022 82);
-  --secondary-foreground: oklch(0.32 0.04 50);
-  --muted: oklch(0.94 0.016 84);
-  --muted-foreground: oklch(0.5 0.025 60);
-  --accent: oklch(0.42 0.095 265);
-  --accent-foreground: oklch(0.98 0.01 85);
+  --background: oklch(0.9755 0.0045 258.32);
+  --foreground: oklch(0.2775 0.0569 259.92);
+  --card: oklch(0.99 0.002 258);
+  --card-foreground: oklch(0.2775 0.0569 259.92);
+  --popover: oklch(0.99 0.002 258);
+  --popover-foreground: oklch(0.2775 0.0569 259.92);
+  --primary: oklch(0.4256 0.1064 260.2);
+  --primary-foreground: oklch(0.9755 0.0045 258.32);
+  --secondary: oklch(0.885 0.0014 106.43);
+  --secondary-foreground: oklch(0.2775 0.0569 259.92);
+  --muted: oklch(0.915 0.008 256);
+  --muted-foreground: oklch(0.46 0.045 259);
+  --accent: oklch(0.6612 0.0605 258.35);
+  --accent-foreground: oklch(0.9755 0.0045 258.32);
   --destructive: oklch(0.55 0.2 27);
   --destructive-foreground: oklch(0.98 0.01 85);
-  --border: oklch(0.88 0.02 80);
-  --input: oklch(0.88 0.02 80);
-  --ring: oklch(0.55 0.135 44);
-  --marigold: oklch(0.76 0.16 70);
-  --indigo-ink: oklch(0.36 0.09 265);
-  --clay: oklch(0.42 0.05 50);
-  --sand: oklch(0.94 0.03 80);
-  --chart-1: oklch(0.55 0.135 44);
-  --chart-2: oklch(0.42 0.095 265);
-  --chart-3: oklch(0.76 0.16 70);
+  --border: oklch(0.7883 0.0215 254.94);
+  --input: oklch(0.7883 0.0215 254.94);
+  --ring: oklch(0.4256 0.1064 260.2);
+  --marigold: oklch(0.7883 0.0215 254.94);
+  --indigo-ink: oklch(0.2775 0.0569 259.92);
+  --clay: oklch(0.4256 0.1064 260.2);
+  --sand: oklch(0.885 0.0014 106.43);
+  --chart-1: oklch(0.4256 0.1064 260.2);
+  --chart-2: oklch(0.6612 0.0605 258.35);
+  --chart-3: oklch(0.7883 0.0215 254.94);
   --chart-4: oklch(0.6 0.09 150);
   --chart-5: oklch(0.62 0.14 12);
-  --sidebar: oklch(0.96 0.018 82);
-  --sidebar-foreground: oklch(0.26 0.03 52);
-  --sidebar-primary: oklch(0.55 0.135 44);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.92 0.025 80);
-  --sidebar-accent-foreground: oklch(0.3 0.04 50);
-  --sidebar-border: oklch(0.88 0.02 80);
-  --sidebar-ring: oklch(0.55 0.135 44);
+  --sidebar: oklch(0.95 0.006 258);
+  --sidebar-foreground: oklch(0.2775 0.0569 259.92);
+  --sidebar-primary: oklch(0.4256 0.1064 260.2);
+  --sidebar-primary-foreground: oklch(0.9755 0.0045 258.32);
+  --sidebar-accent: oklch(0.885 0.0014 106.43);
+  --sidebar-accent-foreground: oklch(0.2775 0.0569 259.92);
+  --sidebar-border: oklch(0.7883 0.0215 254.94);
+  --sidebar-ring: oklch(0.4256 0.1064 260.2);
 }
 
 .dark {
@@ -147,7 +147,7 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 }
 
@@ -160,10 +160,32 @@
 
 @utility paper {
   background-image: radial-gradient(
-      oklch(0.55 0.135 44 / 0.05) 1px,
+      oklch(0.4256 0.1064 260.2 / 0.07) 1px,
       transparent 1px
     );
   background-size: 18px 18px;
+}
+
+@keyframes shell-breathe {
+  0%, 100% {
+    transform: rotate(-8deg) scale(0.92);
+    opacity: 0.68;
+  }
+  50% {
+    transform: rotate(8deg) scale(1.06);
+    opacity: 1;
+  }
+}
+
+@utility shell-loader {
+  animation: shell-breathe 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee,
+  .shell-loader {
+    animation: none;
+  }
 }
 
 @utility hairline {

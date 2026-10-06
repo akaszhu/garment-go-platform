@@ -1,3 +1,5 @@
 - [x] Add Shirts & Blouses, Tops, Bottoms, Co-ords, and Dresses to the catalog.
 - [x] Divide the storefront into Active Wear and Traditional Wear across navigation, homepage, and shop filters.
 - [x] Verify category browsing and mobile navigation in the preview.
+- [x] Apply the supplied blue palette and Shoge logo across the storefront.
+- [x] Use the shell symbol for the favicon and page-loading animation.

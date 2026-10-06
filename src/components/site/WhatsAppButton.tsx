@@ -8,7 +8,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="fixed right-4 bottom-4 z-50 flex items-center gap-2 rounded-full bg-[oklch(0.62_0.16_150)] px-4 py-3 text-sm font-medium text-white shadow-[var(--shadow-lift)] transition-transform hover:scale-105"
+      className="fixed right-4 bottom-4 z-50 flex items-center gap-2 rounded-full bg-primary px-4 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:scale-105"
     >
       <MessageCircle className="h-5 w-5" />
       <span className="hidden sm:inline">Chat with us</span>
