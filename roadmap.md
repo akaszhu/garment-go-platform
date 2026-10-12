@@ -1,5 +1,13 @@
 - [x] Add Shirts & Blouses, Tops, Bottoms, Co-ords, and Dresses to the catalog.
 - [x] Divide the storefront into Active Wear and Traditional Wear across navigation, homepage, and shop filters.
-- [x] Verify category browsing and mobile navigation in the preview.
-- [x] Apply the supplied blue palette and Shoge logo across the storefront.
-- [x] Use the shell symbol for the favicon and page-loading animation.
+- [x] Add Festive/Casual filters for Tops and Co-ords; keep both categories unfiltered by default.
+- [x] Keep only Tops, Bottoms, Co-ords, and Dresses in the desktop top bar.
+- [x] Apply the supplied blue palette, Shoge logo, shell favicon, and shell loading animation.
+- [x] Add customer support, policy, product-care, size-guide, wholesale, careers, and returns information routes.
+- [x] Add an admin-page checklist without exposing store or customer records.
+- [ ] Confirm owner contact and legal policy details before replacing draft guidance with binding copy.
+- [ ] Assign a verified owner account before enabling sensitive admin pages or granting administrator access.
+- [ ] Add persistent products, orders, inventory, customer, coupon, and review management after owner access is confirmed.
+- [ ] Complete customer login/profile, durable order placement/history, review submission/moderation, and live order lookup.
+- [ ] Connect payment, SMS OTP, courier tracking, email/WhatsApp notifications, and newsletter services after provider setup.
+- [ ] Verify payment, authentication, order, and admin flows end-to-end before launch.
