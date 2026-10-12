@@ -3,6 +3,11 @@
 - [x] Add Festive/Casual filters for Tops and Co-ords; keep both categories unfiltered by default.
 - [x] Keep only Tops, Bottoms, Co-ords, and Dresses in the desktop top bar.
 - [x] Apply the supplied blue palette, Shoge logo, shell favicon, and shell loading animation.
+- [ ] Add Home to the top navigation and match the supplied boutique navigation reference.
+- [ ] Expand Tops, Bottoms, Co-ords, and Dresses with the requested subcategories and an All option per category.
+- [ ] Add the Shoge Edit signature-style collection.
+- [ ] Add fabric and occasion filters using the supplied options.
+- [ ] Update font roles: Cormorant Garamond Medium for main headings; DM Sans Medium for navigation, product names, prices, and buttons; DM Sans Regular for descriptions.
 - [x] Add customer support, policy, product-care, size-guide, wholesale, careers, and returns information routes.
 - [x] Add an admin-page checklist without exposing store or customer records.
 - [ ] Confirm owner contact and legal policy details before replacing draft guidance with binding copy.
