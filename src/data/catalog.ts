@@ -18,6 +18,7 @@ export type Product = {
   images: string[];
   category: Category;
   subcategory?: "festive" | "casual";
+  classification?: string;
   audience: "women" | "girls";
   colors: { name: string; hex: string }[];
   sizes: string[];
@@ -26,7 +27,7 @@ export type Product = {
   rating: number;
   reviewCount: number;
   stock: number;
-  tags: ("new" | "bestseller" | "restocked" | "sale")[];
+  tags: ("new" | "bestseller" | "restocked" | "sale" | "signature")[];
   description: string;
   care: string[];
   createdAt: string;
@@ -52,6 +53,59 @@ export const divisions: { slug: Division; name: string; blurb: string; image: st
   { slug: "active", name: "Active Wear", blurb: "Easy pieces for everyday movement and moments out.", image: shirt },
   { slug: "traditional", name: "Traditional Wear", blurb: "The enduring beauty of craft, made for now.", image: p1 },
 ];
+
+export const shopCategories = [
+  {
+    slug: "tops",
+    name: "Tops",
+    subcategories: [
+      { slug: "crop-tops", name: "Crop Tops" },
+      { slug: "shirts-blouses", name: "Shirts & Blouses" },
+      { slug: "tunics", name: "Tunics" },
+    ],
+  },
+  {
+    slug: "bottoms",
+    name: "Bottoms",
+    subcategories: [
+      { slug: "balloon-pants", name: "Balloon Pants" },
+      { slug: "wide-leg-pants", name: "Wide-Leg Pants" },
+      { slug: "relaxed-straight-leg-pants", name: "Relaxed Straight-Leg Pants" },
+    ],
+  },
+  {
+    slug: "co-ords",
+    name: "Co-ords",
+    subcategories: [
+      { slug: "top-pants-co-ords", name: "Top & Pants Co-ords" },
+      { slug: "ethnic-co-ords", name: "Ethnic Co-ords" },
+    ],
+  },
+  {
+    slug: "dresses",
+    name: "Dresses",
+    subcategories: [
+      { slug: "everyday-dresses", name: "Everyday Dresses" },
+      { slug: "statement-dresses", name: "Statement Dresses" },
+    ],
+  },
+] as const;
+
+export const fabricOptions = [
+  "100% Cotton",
+  "Cotton Blend",
+  "Flex",
+  "Cotton Linen",
+  "Linen",
+  "Rayon / Viscose",
+] as const;
+
+export const occasionOptions = [
+  "Everyday",
+  "Workwear",
+  "Casual Outings",
+  "Festive & Occasion Wear",
+] as const;
 
 export const categories: {
   slug: Category;
@@ -116,7 +170,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 64,
     stock: 12,
-    tags: ["bestseller", "new"],
+    tags: ["bestseller", "new", "signature"],
     description:
       "Hand block-printed on pure cotton mul with natural madder dye, finished with a scalloped yoke and tonal thread work. Comes with straight pants.",
     care: ["Hand wash separately in cold water", "Dry in shade", "Warm iron inside out"],
@@ -129,6 +183,7 @@ export const products: Product[] = [
     images: [p2, p1],
     category: "co-ords",
     subcategory: "casual",
+    classification: "top-pants-co-ords",
     audience: "women",
     colors: [C.indigo, C.black],
     sizes: APPAREL,
@@ -137,7 +192,7 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 41,
     stock: 6,
-    tags: ["bestseller"],
+    tags: ["bestseller", "signature"],
     description:
       "Dipped in real indigo at our Ahmedabad studio. Relaxed button-down top with matching shorts — the set you will over-wear all summer.",
     care: ["Wash separately first three washes", "Do not bleach", "Line dry"],
@@ -290,6 +345,7 @@ export const products: Product[] = [
     images: [p2, p3],
     category: "co-ords",
     subcategory: "casual",
+    classification: "top-pants-co-ords",
     audience: "women",
     colors: [C.olive, C.ivory],
     sizes: APPAREL,
@@ -345,7 +401,7 @@ export const products: Product[] = [
   }),
   make(13, {
     slug: "nira-cotton-shirt", name: "Nira Block-Print Shirt", price: 2150, mrp: 2550,
-    images: [shirt, shirt], category: "shirts-blouses", audience: "women",
+    images: [shirt, shirt], category: "shirts-blouses", classification: "shirts-blouses", audience: "women",
     colors: [C.ivory, C.indigo], sizes: APPAREL, fabric: "Pure cotton",
     occasion: "Everyday", rating: 4.7, reviewCount: 18, stock: 14, tags: ["new"],
     description: "A relaxed cotton shirt with indigo floral block prints, made for the everyday wardrobe.",
@@ -369,7 +425,7 @@ export const products: Product[] = [
   }),
   make(16, {
     slug: "van-cotton-trousers", name: "Van Wide-Leg Trousers", price: 1850, mrp: 2200,
-    images: [bottoms, bottoms], category: "bottoms", audience: "women",
+    images: [bottoms, bottoms], category: "bottoms", classification: "wide-leg-pants", audience: "women",
     colors: [C.olive], sizes: APPAREL, fabric: "Cotton twill",
     occasion: "Everyday", rating: 4.7, reviewCount: 21, stock: 16, tags: ["new"],
     description: "Relaxed olive cotton trousers finished with a delicate printed hem.",
@@ -377,17 +433,17 @@ export const products: Product[] = [
   }),
   make(17, {
     slug: "gulmohar-midi-dress", name: "Gulmohar Printed Dress", price: 2950, mrp: 3500,
-    images: [dress, dress], category: "dresses", audience: "women",
+    images: [dress, dress], category: "dresses", classification: "everyday-dresses", audience: "women",
     colors: [C.ivory, C.terracotta], sizes: APPAREL, fabric: "Pure cotton",
-    occasion: "Daywear", rating: 4.8, reviewCount: 26, stock: 13, tags: ["new"],
+    occasion: "Daywear", rating: 4.8, reviewCount: 26, stock: 13, tags: ["new", "signature"],
     description: "An easy midi dress in breathable cotton with terracotta floral block prints.",
     care: ["Hand wash cold", "Dry in shade"],
   }),
   make(18, {
     slug: "utsav-festive-coord", name: "Utsav Festive Co-ord", price: 3650, mrp: 4200,
-    images: [p2, top], category: "co-ords", subcategory: "festive", audience: "women",
+    images: [p2, top], category: "co-ords", subcategory: "festive", classification: "ethnic-co-ords", audience: "women",
     colors: [C.terracotta, C.rose], sizes: APPAREL, fabric: "Chanderi cotton",
-    occasion: "Festive", rating: 4.9, reviewCount: 9, stock: 7, tags: ["new"],
+    occasion: "Festive", rating: 4.9, reviewCount: 9, stock: 7, tags: ["new", "signature"],
     description: "A celebration-ready co-ord in lustrous Chanderi cotton with hand-embroidered yoke and matching straight pants.",
     care: ["Dry clean recommended", "Store folded"],
   }),
