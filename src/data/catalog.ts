@@ -18,6 +18,7 @@ export type Product = {
   images: string[];
   category: Category;
   subcategory?: "festive" | "casual";
+  classification?: string;
   audience: "women" | "girls";
   colors: { name: string; hex: string }[];
   sizes: string[];
@@ -26,7 +27,7 @@ export type Product = {
   rating: number;
   reviewCount: number;
   stock: number;
-  tags: ("new" | "bestseller" | "restocked" | "sale")[];
+  tags: ("new" | "bestseller" | "restocked" | "sale" | "signature")[];
   description: string;
   care: string[];
   createdAt: string;
@@ -52,6 +53,59 @@ export const divisions: { slug: Division; name: string; blurb: string; image: st
   { slug: "active", name: "Active Wear", blurb: "Easy pieces for everyday movement and moments out.", image: shirt },
   { slug: "traditional", name: "Traditional Wear", blurb: "The enduring beauty of craft, made for now.", image: p1 },
 ];
+
+export const shopCategories = [
+  {
+    slug: "tops",
+    name: "Tops",
+    subcategories: [
+      { slug: "crop-tops", name: "Crop Tops" },
+      { slug: "shirts-blouses", name: "Shirts & Blouses" },
+      { slug: "tunics", name: "Tunics" },
+    ],
+  },
+  {
+    slug: "bottoms",
+    name: "Bottoms",
+    subcategories: [
+      { slug: "balloon-pants", name: "Balloon Pants" },
+      { slug: "wide-leg-pants", name: "Wide-Leg Pants" },
+      { slug: "relaxed-straight-leg-pants", name: "Relaxed Straight-Leg Pants" },
+    ],
+  },
+  {
+    slug: "co-ords",
+    name: "Co-ords",
+    subcategories: [
+      { slug: "top-pants-co-ords", name: "Top & Pants Co-ords" },
+      { slug: "ethnic-co-ords", name: "Ethnic Co-ords" },
+    ],
+  },
+  {
+    slug: "dresses",
+    name: "Dresses",
+    subcategories: [
+      { slug: "everyday-dresses", name: "Everyday Dresses" },
+      { slug: "statement-dresses", name: "Statement Dresses" },
+    ],
+  },
+] as const;
+
+export const fabricOptions = [
+  "100% Cotton",
+  "Cotton Blend",
+  "Flex",
+  "Cotton Linen",
+  "Linen",
+  "Rayon / Viscose",
+] as const;
+
+export const occasionOptions = [
+  "Everyday",
+  "Workwear",
+  "Casual Outings",
+  "Festive & Occasion Wear",
+] as const;
 
 export const categories: {
   slug: Category;
